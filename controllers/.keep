@@ -1,0 +1,32 @@
+const ...Model = require(`./../database/models/..._model`);
+
+async function index(req, res) {
+}
+
+async function show(req, res) {
+}
+
+async function make(req, res) {
+}
+
+async function create(req, res) {
+}
+
+async function update(req, res) {
+}
+
+async function destroy(req, res) {
+}
+
+async function edit(req, res) {
+}
+
+module.exports = {
+    index,
+    show,
+    make,
+    create,
+    update,
+    destroy,
+    edit
+}

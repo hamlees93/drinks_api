@@ -1,0 +1,39 @@
+Create a drinks counter API that...
+    - authenticates with username/password & OAuth
+    - authorises with JWT
+    - excepts url encdoded & JSON data
+    - only responds with JSON
+Endpoints
+POST /register
+    - email
+    - password
+    - name
+POST /login
+    - email
+    - password
+GET /user //user information
+PUT/PATCH /user //update user information
+GET /drinks //list of all drinks
+POST /drinks //start keeping track of a new drink
+    - name
+    - type
+    - subtype
+    - ml //size
+    - alcohol_percent
+    - price
+    - locations
+        - location
+        - amount
+        - timestamps //array of timestamps
+PUT/PATCH /drinks/:id/increment //increase the amount of an existing drink and adds a timestamp
+    - location
+PUT/PATCH /drinks/:id/decrement //decrease the amount of an exisitng drink and removes last timestamp
+    - location
+PUT/PATCH /drinks/:id //update drink information
+GET /locations //list of locations
+POST /locations //where they had their drinks
+    -name
+    -city
+    -state
+    -country
+PUT/PATCH /locations/:id //update location details
