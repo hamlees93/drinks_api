@@ -4,10 +4,10 @@ Create a drinks counter API that...
     - excepts url encdoded & JSON data
     - only responds with JSON
 Endpoints
-POST /register
-    - email
-    - password
-    - name
+###### POST /register
+######     - email
+######     - password
+######     - name
 POST /login
     - email
     - password

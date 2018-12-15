@@ -1,3 +1,7 @@
+//////////// Don't think this is needed? //////////
+
+
+
 //current logged in user is always available through req.user
 function authorise (req,res,next) {
     if (!req.user) {

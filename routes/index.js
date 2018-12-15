@@ -3,6 +3,7 @@ const router = express.Router();
 const { authorise, alreadyLoggedIn } = require(`./../middleware/authentication_middleware`);
 const { celebrate, Joi } = require(`celebrate`);
 const AuthenticationController = require(`./../controllers/authentication_controller`);
+const passport = require(`passport`);
 
 router.get("/", (req, res) => res.send("Welcome"));
 
@@ -10,6 +11,7 @@ router.get("/", (req, res) => res.send("Welcome"));
 //email, password, name
 router.post(`/register`, celebrate({
     body: {
+        name: Joi.string().required(),
         email: Joi.string().required(),
         password: Joi.string().required()
     }
@@ -19,6 +21,17 @@ router.get(`/success`, (req,res) => res.send(`Great success!`));
 
 //email, password
 // router.post(`/login`, (req, res) => res.send("Welcome") );
+router.post(`/login`, celebrate({
+    body: {
+        email: Joi.string().required(),
+        password: Joi.string().required()
+    }
+}), passport.authenticate(`local`, {
+    // successRedirect: `/dashboard`,
+    failureRedirect: `/login`,
+    //Session: false prevents the session from tracking us, instead, we rely on the JWT
+    session: false
+}), AuthenticationController.generateJWT);
 
 //user --> user_info
 // router.get();

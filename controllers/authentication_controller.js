@@ -28,15 +28,10 @@ async function loginVerify(req, res) {
     res.redirect(`/dashboard`);
 };
 
-function make(req, res) {
-    res.render(`authentication/make`);
-};
-
-async function create(req, res, next) {
+async function create(req, res) {
     const user = await UserModel.create(req.body);
     // const token = jwt.sign({ sub: user._id}, process.env.JWT_SECRET);
     // res.cookie("jwt", token);
-    console.log(req.body);
     res.redirect("/success");
 };
 
@@ -56,7 +51,6 @@ function generateJWT(req, res) {
 module.exports = {
     loginForm,
     loginVerify,
-    make,
     create,
     logout,
     generateJWT
